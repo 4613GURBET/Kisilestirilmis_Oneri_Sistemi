@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="form-card">
+    <h2>Tercihlerini Güncelle</h2>
+    <form method="POST">
+        <div class="form-group">
+            <label>Yaş</label>
+            <input type="number" name="age" min="10" max="100" value="25">
+        </div>
+        <div class="form-group">
+            <label>Kategori</label>
+            <select name="category">
+                <option value="sports">Spor</option>
+                <option value="art">Sanat</option>
+                <option value="music">Müzik</option>
+                <option value="outdoor">Açık Hava</option>
+                <option value="indoor">Kapalı Alan</option>
+                <option value="social">Sosyal</option>
+                <option value="educational">Eğitim</option>
+                <option value="wellness">Sağlık</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Maksimum Süre (dakika)</label>
+            <input type="number" name="duration" min="15" max="480" value="60">
+        </div>
+        <div class="form-group">
+            <label>Zorluk</label>
+            <select name="difficulty">
+                <option value="easy">Kolay</option>
+                <option value="medium">Orta</option>
+                <option value="hard">Zor</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Ortam</label>
+            <select name="indoor">
+                <option value="true">Kapalı Alan</option>
+                <option value="false">Açık Alan</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Bütçe (TL)</label>
+            <input type="number" name="budget" min="0" value="100">
+        </div>
+        <button type="submit" class="btn btn-primary">Kaydet</button>
+    </form>
+</div>
+{% endblock %}
