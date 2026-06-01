@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aktivite Planlayıcı</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="{{ url_for('main.index') }}" class="nav-brand">🎯 Aktivite Planlayıcı</a>
+        <div class="nav-links">
+            {% if session.user_id %}
+                <a href="{{ url_for('main.dashboard') }}">Dashboard</a>
+                <a href="{{ url_for('main.preferences') }}">Tercihler</a>
+                <a href="{{ url_for('main.activities') }}">Aktiviteler</a>
+                <a href="{{ url_for('main.logout') }}">Çıkış</a>
+            {% else %}
+                <a href="{{ url_for('main.login') }}">Giriş</a>
+                <a href="{{ url_for('main.register') }}">Kayıt Ol</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <main class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

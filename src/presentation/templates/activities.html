@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Tüm Aktiviteler</h2>
+<div class="card-grid">
+    {% for activity in activities %}
+    <div class="card">
+        <h4>{{ activity.name }}</h4>
+        <span class="badge">{{ activity.category.value }}</span>
+        <span class="badge">{{ activity.difficulty.value }}</span>
+        <p>{{ activity.description or "Açıklama yok." }}</p>
+        <small>{{ activity.duration }} dk | {{ activity.min_budget }} TL'den başlayan</small>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

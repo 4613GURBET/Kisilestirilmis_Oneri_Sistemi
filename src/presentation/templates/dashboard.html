@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Merhaba, {{ username }}! 👋</h2>
+
+{% if suggestions %}
+    <h3>Bugünkü Öneriler</h3>
+    <div class="card-grid">
+        {% for item in suggestions %}
+        <div class="card">
+            <h4>{{ item.activity.name }}</h4>
+            <span class="badge">{{ item.activity.category.value }}</span>
+            <span class="badge">{{ item.activity.difficulty.value }}</span>
+            <p>{{ item.ai_note }}</p>
+            {% if item.confidence %}
+                <small>Uyum: %{{ (item.confidence * 100)|int }}</small>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <div class="empty-state">
+        <p>Henüz öneri yok.</p>
+        <a href="{{ url_for('main.preferences') }}" class="btn btn-primary">
+            Tercihlerini Gir
+        </a>
+    </div>
+{% endif %}
+{% endblock %}
