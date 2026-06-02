@@ -73,13 +73,12 @@ class AIClient:
     def __init__(self):
         self.strategy = self._select_strategy()
 
-    def _select_strategy(self) -> AIStrategy:
+    def _select_strategy(self):
         if os.getenv("OPENAI_API_KEY"):
             return OpenAIStrategy()
         elif os.getenv("GEMINI_API_KEY"):
             return GeminiStrategy()
-        else:
-            raise EnvironmentError(".env dosyasında API key bulunamadı.")
+        return None
 
     def generate_note(self, activity_name: str, user_preferences: dict) -> str:
         return self.strategy.generate_note(activity_name, user_preferences)
