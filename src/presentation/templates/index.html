@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="hero">
+    <h1>Sana Özel Aktivite Önerileri</h1>
+    <p>Yapay zeka destekli kişiselleştirilmiş aktivite planlayıcı.</p>
+    <div class="hero-buttons">
+        <a href="{{ url_for('main.register') }}" class="btn btn-primary">Hemen Başla</a>
+        <a href="{{ url_for('main.login') }}" class="btn btn-secondary">Giriş Yap</a>
+    </div>
+</div>
+{% endblock %}

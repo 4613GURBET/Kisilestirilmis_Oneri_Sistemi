@@ -1,35 +1,19 @@
-cat > .gitignore << 'EOF'
-# Python
 __pycache__/
 *.pyc
 *.pyo
 venv/
 .venv/
 *.egg-info/
-
-# Ortam değişkenleri — ASLA commit'leme!
 .env
-
-# Veri seti dosyaları
 data_processing/*.csv
 data_processing/*.xlsx
 data_processing/*.json
-!data_processing/sample_data.csv
-
-# ML modeli
 src/business/*.pkl
 src/business/*.joblib
-
-# IDE
 .vscode/
 .idea/
-
-# Test çıktıları
 .pytest_cache/
 .coverage
 htmlcov/
-
-# OS
 .DS_Store
 Thumbs.db
-EOF
